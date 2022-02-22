@@ -10,16 +10,17 @@ import org.apache.logging.log4j.Logger;
 
 
 @Mod("alloutpower")
-public class Alloutpower {
+public class AllOutPowerMain {
 
     // Directly reference a log4j logger.
+    public static final String MODID = "alloutpower";
+
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public Alloutpower() {
-        // Register the setup method for modloading
+    public AllOutPowerMain() {
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
