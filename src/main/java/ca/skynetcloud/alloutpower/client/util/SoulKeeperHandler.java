@@ -27,7 +27,7 @@ public class SoulKeeperHandler {
     public static final String stackTag = "Stack";
     private final Player player;
 
-    public static SoulKeeperHandler getOrCreateSoulboundHandler(Player player) {
+    public static SoulKeeperHandler getOrCreateSoulKeeperHandler(Player player) {
         if (getSoulKeeperHandler(player) != null)
             return getSoulKeeperHandler(player);
         else
@@ -171,7 +171,7 @@ public class SoulKeeperHandler {
             return b - Math.sqrt((1 - rand) * (b - a) * (b - c));
     }
 
-    public void transferItems(Player rebornPlayer) {
+    public void transferPlayerItems(Player rebornPlayer) {
         List<ItemStack> retainedDrops = this.deserializePlayerDrops();
 
         if (retainedDrops.isEmpty())
