@@ -3,26 +3,36 @@ package ca.skynetcloud.alloutpower.common.items.books;
 
 
 import ca.skynetcloud.alloutpower.client.util.config.AllOutPowerConfig;
+import ca.skynetcloud.alloutpower.common.items.ItemInit;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 
 import javax.annotation.Nonnull;
 
-public class SoulKeeperBook extends Enchantment {
 
-     public SoulKeeperBook(){
-     super(Rarity.VERY_RARE, EnchantmentCategory.ARMOR, new EquipmentSlot[] {
-             EquipmentSlot.MAINHAND, EquipmentSlot.CHEST
-     });
+public class SoulKeeperBook extends Enchantment{
+
+    public SoulKeeperBook() {
+        super(Rarity.RARE, EnchantmentCategory.ARMOR,
+                new EquipmentSlot[] { EquipmentSlot.MAINHAND, EquipmentSlot.CHEST });
     }
 
+    @Nonnull
+    @Override
+    public Rarity getRarity() {
+        return AllOutPowerConfig.Enchantment.rarity;
+    }
 
     @Override
     public int getMaxLevel() {
-        return AllOutPowerConfig.Enchantment.levels;
+        return AllOutPowerConfig.Enchantment.maxLevels;
     }
 
     @Override
@@ -35,6 +45,7 @@ public class SoulKeeperBook extends Enchantment {
     public int getMaxCost(int enchantmentLevel) {
         return 50;
     }
+
 
     @Override
     public boolean isTreasureOnly() {

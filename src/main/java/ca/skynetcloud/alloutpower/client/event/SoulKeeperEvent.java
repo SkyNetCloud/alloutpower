@@ -14,7 +14,7 @@ public class SoulKeeperEvent {
     @SubscribeEvent
     public static void retrievalSystemEvent(LivingDropsEvent event){
         if(event.getEntity() instanceof Player){
-            SoulKeeperHandler.getOrCreateSoulKeeperHandler((Player) event.getEntityLiving()).retainPlayerDrops(event.getDrops());
+            SoulKeeperHandler.getOrCreateSoulboundHandler((Player) event.getEntityLiving()).retainDrops(event.getDrops());
         }
     }
     @SubscribeEvent
@@ -22,9 +22,9 @@ public class SoulKeeperEvent {
             if(event.isWasDeath()){
                 Player deadplayer = event.getOriginal();
                 if(SoulKeeperHandler.hasStoredDrops(deadplayer)){
-                    SoulKeeperHandler.getOrCreateSoulKeeperHandler(deadplayer).transferPlayerItems(event.getPlayer());
+                    SoulKeeperHandler.getOrCreateSoulboundHandler(deadplayer).transferItems(event.getPlayer());
                 } else if (SoulKeeperHandler.hasStoredDrops(event.getPlayer())){
-                    SoulKeeperHandler.getOrCreateSoulKeeperHandler(event.getPlayer()).transferPlayerItems(event.getPlayer());
+                    SoulKeeperHandler.getOrCreateSoulboundHandler(event.getPlayer()).transferItems(event.getPlayer());
                 }
             }
     }

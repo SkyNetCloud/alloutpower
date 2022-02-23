@@ -1,6 +1,7 @@
 package ca.skynetcloud.alloutpower.common.items;
 
 import ca.skynetcloud.alloutpower.AllOutPowerMain;
+import ca.skynetcloud.alloutpower.client.util.tabs.AllOutPowerTab;
 import ca.skynetcloud.alloutpower.common.items.books.SoulKeeperBook;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -13,5 +14,6 @@ public class ItemInit {
    public static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, AllOutPowerMain.MODID);
 
    public static RegistryObject<Enchantment> Soul_Keeper = ENCHANTMENT.register("soul_keeper", () -> new SoulKeeperBook());
+
 
 }
